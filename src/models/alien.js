@@ -14,11 +14,17 @@ function Alien(o) {
 
 module.exports = Alien;
 
-Alien.find = function () {
+Alien.find = function (id) {
   let data = fs.readFileSync(file, { encoding: 'utf8' });
   data = data.split('\n');
   data.pop();
-  return data.map(d => JSON.parse(d));
+  const aliens = data.map(d => JSON.parse(d));
+
+  if (id) {
+    return aliens.find(a => a.id === id);
+  }
+
+  return aliens;
 };
 
 Alien.prototype.save = function () {

@@ -14,7 +14,8 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.render('aliens/show');
+  const alien = Alien.find(req.params.id);
+  res.render('aliens/show', { alien });
 });
 
 router.post('/', (req, res) => {
