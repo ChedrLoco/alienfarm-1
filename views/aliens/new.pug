@@ -2,3 +2,19 @@ extends ../shared/template
 block title
   h1 New
 block content
+  h2 Create a New Alien
+  .row
+    .col-xs-6
+      form(action='/aliens', method='post')
+        .form-group
+          label Name
+          input.form-control(type='text', name='name')
+        .form-group
+          label Photo
+          input.form-control(type='text', name='photo')
+        .form-group
+          label Planet
+          input.form-control(type='text', name='planet')
+        .form-group
+          button.btn.btn-primary(type='submit') Submit
+    .col-xs-6
